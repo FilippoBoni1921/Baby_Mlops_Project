@@ -1,0 +1,9 @@
+defaults:
+  # Load default configurations for each component
+  - model: glue
+  - processing: mid
+  - training: short
+
+  # Use colorlog for better terminal log formatting
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
