@@ -70,11 +70,18 @@ class Trainer:
 
             val_loss, _ = self.evaluate(epoch)
 
+            print(val_loss)
+            print(self.best_val_loss)
+
             # Early stopping logic
             if val_loss < self.best_val_loss:
+                print('CHECKPOINT')
                 self.best_val_loss = val_loss
                 self.early_stopping_counter = 0
                 # Save model checkpoint
+                print(f"Saving model to: HOLALAALLAALALAL")
+                save_path = os.path.join(self.checkpoint_dir, "best_model.pt")
+                print(f"Saving model to: {save_path}")
                 torch.save(self.model.state_dict(), os.path.join(self.checkpoint_dir, "best_model.pt"))
             else:
                 self.early_stopping_counter += 1

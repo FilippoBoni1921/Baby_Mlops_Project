@@ -1,3 +1,5 @@
+from pathlib import Path
+
 BASE_MODEL = "google/bert_uncased_L-2_H-128_A-2"
 
 INPUT_IDS = "input_ids"
@@ -22,5 +24,5 @@ WAND_PROJECT = "my_project"
 WAND_RUN_NAME = "cola-vanilla"
 
 SAVE_DIR = "saved_dir"
-CHECKPOINT_DIR="./models"
+CHECKPOINT_DIR = Path(__file__).parent.parent / "models"
 
