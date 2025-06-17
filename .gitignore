@@ -1,5 +1,7 @@
 .venv
 .env
 
-/models
+models/*.pt
+!models/
+!models/*.dvc
 /wandb
