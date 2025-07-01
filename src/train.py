@@ -70,18 +70,11 @@ class Trainer:
 
             val_loss, _ = self.evaluate(epoch)
 
-            print(val_loss)
-            print(self.best_val_loss)
-
             # Early stopping logic
             if val_loss < self.best_val_loss:
-                print('CHECKPOINT')
                 self.best_val_loss = val_loss
                 self.early_stopping_counter = 0
                 # Save model checkpoint
-                print(f"Saving model to: HOLALAALLAALALAL")
-                save_path = os.path.join(self.checkpoint_dir, "best_model.pt")
-                print(f"Saving model to: {save_path}")
                 torch.save(self.model.state_dict(), os.path.join(self.checkpoint_dir, "best_model.pt"))
             else:
                 self.early_stopping_counter += 1
@@ -112,7 +105,7 @@ class Trainer:
 
         acc = accuracy_score(true_labels, predictions)
         avg_val_loss = total_loss / len(self.val_loader)
-        logging.info(f"Validation Loss: {avg_val_loss:.4f}, Accuracy: {acc:.4f}")
+        logging.info(f"Epoch {epoch + 1} - Validation Loss: {avg_val_loss:.4f}, Accuracy: {acc:.4f}")
         #wandb.log({"valid/loss": avg_val_loss, "valid/accuracy": acc, "epoch": epoch + 1})
 
         # Log incorrect predictions

@@ -1,9 +1,6 @@
 import logging
 import hydra
 
-import configs.configs_py.register_config
-from configs.configs_py.main_config import Config
-
 import src.constants as constants
 from src.data import DatasetLoader
 from src.model import ColaClassifier
@@ -14,8 +11,8 @@ from omegaconf.omegaconf import OmegaConf
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 
-@hydra.main(config_path="../configs", config_name="config")
-def main(cfg: Config):
+@hydra.main(config_name="config", version_base=None)
+def main(cfg):
     logger.info(OmegaConf.to_yaml(cfg, resolve=True))
     logger.info(f"Using the model: {cfg.model.name}")
     logger.info(f"Using the tokenizer: {cfg.model.tokenizer}")

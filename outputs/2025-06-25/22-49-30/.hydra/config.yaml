@@ -1,0 +1,10 @@
+model:
+  name: google/bert_uncased_L-2_H-128_A-2
+  tokenizer: google/bert_uncased_L-2_H-128_A-2
+training:
+  batch_size: 256
+  lr: 0.01
+  epochs: 5
+processing:
+  batch_size: 128
+  max_length: 128

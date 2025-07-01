@@ -1,0 +1,2 @@
+[2025-06-25 22:52:35,710][__main__][INFO] - Loading pre-trained model from: /Users/PippoDev/Desktop/MLOps/First_Course/Baby_Mlops_Project/models/best_model.pt
+[2025-06-25 22:52:45,054][__main__][INFO] - Converting the model into ONNX format

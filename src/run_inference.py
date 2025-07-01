@@ -6,8 +6,7 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 def main():
-    model_path = f"{constants.SAVE_DIR}/model.pth"
-
+    model_path = f"{constants.CHECKPOINT_DIR}/best_model.pt"
     inference_engine = ColaInference(model_path, model_name=constants.BASE_MODEL)
 
     logging.info("Enter a sentence to classify as grammatical/ungrammatical ('exit' to quit):")

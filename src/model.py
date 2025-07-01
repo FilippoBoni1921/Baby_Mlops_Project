@@ -1,7 +1,7 @@
 import src.constants as constants
+import torch
 import torch.nn as nn
 from transformers import AutoModel
-from tqdm import tqdm
 
 class ColaClassifier(nn.Module):
     def __init__(self, model_name=constants.BASE_MODEL, num_classes=2):
@@ -13,7 +13,14 @@ class ColaClassifier(nn.Module):
         outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
         cls_output = outputs.last_hidden_state[:, 0]
         return self.classifier(cls_output)
-
+    
+    def load_from_checkpoint(self, model_path, device="cpu"):
+        """
+        Load the model weights from a specified path.
+        """
+        self.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
+        self.model.to(device)
+        self.eval()
 
 
 # #import torch

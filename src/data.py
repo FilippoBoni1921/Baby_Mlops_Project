@@ -16,6 +16,7 @@ class DatasetLoader:
             truncation=True,
             padding="max_length",
             max_length=self.max_length,
+            return_tensors="pt",
         )
 
     def prepare(self):
