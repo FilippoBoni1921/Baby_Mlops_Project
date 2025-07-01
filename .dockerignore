@@ -1,0 +1,7 @@
+.dvc
+.venv
+.env
+wandb
+README.md
+Makefile
+outputs
